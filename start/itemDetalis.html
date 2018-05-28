@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>开始考试</title>
+<link rel="stylesheet" type="text/css" href="http://localhost/exam/start/css/item.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="homepage">
+		<nav class="navbar navbar-default">
+			<div class="navbar-fluid">
+				<div class="navbar-header">
+					<p class="navbar-text" >
+						<a >开始考试</a>
+					</p>
+				</div>
+			</div>
+		</nav>
+		<center>
+			<form action="http://localhost:8083/mi/score/evaluate" method="GET" id="paperForm">
+				<div class="row">
+					<div class="col-md-10">
+						<table class="table table-striped  table-hover">
+
+								
+									<input type="hidden" name="pId" v-bind:value="pId">
+									<input type="hidden" name="username" v-bind:value="username">
+									<tbody v-for='item in json' > 								
+										<tr>
+											<td>
+												<h2><span>*</span>{{item.selectQuestion.title}}</h2>
+												{{item.selectQuestion.type}}
+											</td>
+										</tr>
+										<br>
+											
+												<tr v-for="i in item.selectQuestion.itemList" v-if="item.selectQuestion.type=='多'">
+													<td >
+														<h4>
+															<input style="zoom:150%;" type="checkbox" v-bind:name="item.selectQuestion.id" v-bind:value="i.id">
+															{{i.content}}
+														</h4>
+													</td>
+												</tr>
+										
+												<tr v-for="i in item.selectQuestion.itemList" v-if="item.selectQuestion.type=='单'">
+													<td >
+														<h4>
+															<input style="zoom:150%;" type="radio" v-bind:name="item.selectQuestion.id" v-bind:value="i.id">
+															{{i.content}}
+														</h4>
+													</td>
+												</tr>
+												
+									</tbody>
+								
+							</table>
+					</div>
+				</div>
+				<input type="submit" value="交卷">
+			</form>
+		</center>	
+	</div>
+
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost/exam/public/js/isLogin.js"></script>
+<script type="text/javascript" src="http://localhost/exam/public/js/jquery.form.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script type="text/javascript" src="js/itemDetalis.js"></script>
+<script type="text/javascript" src=''></script>
+
+</body>
+</html>
