@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>选择试题</title>
+<title>未完成答卷</title>
 <link rel="stylesheet" type="text/css" href="http://localhost/exam/start/css/item.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -13,7 +13,7 @@
 			<div class="navbar-fluid">
 				<div class="navbar-header">
 					<p class="navbar-text">
-						<a >在线考试</a>
+						<a >未完成答卷</a>
 					</p>
 				</div>
 			</div>
@@ -24,36 +24,29 @@
 						<thead>
 							<tr>
 								<th>考试名</th>
-								<th>创建时间</th>
 								<th>科目</th>
-								<th>每题分值</th>
-								<th>限时时长(秒)</th>
+								<th>中断时间</th>
+
 							</tr>
 						</thead>
 						<tbody>
 							
-							<tr v-for='item in paperjson' >
-									
+							<tr v-for='item in json' >
 									
 									<td>
-										{{item.name}}
+										{{item.papers.name}}
+									</td>
+									<td>
+										{{item.papers.subject}}
 									</td>
 									<td>
 										{{item.created}}
 									</td>
 									<td>
-										{{item.subject}}
+										<a v-bind:href="'http://localhost/exam/start/itemDetalis.html?username='+item.username+'&pId='+item.papers.id">
+											继续考试
+										</a>
 									</td>
-									<td>
-										{{item.score}}
-									</td>
-									<td>
-										{{item.time}}
-									</td>
-									<td>
-										<a v-bind:href="'http://localhost/exam/start/itemDetalis.html?id='+item.id">开始考试</a>
-									</td>
-							
 							</tr>
 							
 						</tbody>

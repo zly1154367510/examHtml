@@ -6,7 +6,7 @@ $(function(){
 		},
 		mounted:function(){
 			var name = this.$options.methods.requestParam()['name']
-			this.name = name	
+			this.name = name
 			console.log(this.name)
 		},
 		methods:{

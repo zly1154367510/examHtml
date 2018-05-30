@@ -41,7 +41,7 @@
 												<tr v-for="i in item.selectQuestion.itemList" v-if="item.selectQuestion.type=='多'">
 													<td >
 														<h4>
-															<input style="zoom:150%;" type="checkbox" v-bind:name="item.selectQuestion.id" v-bind:value="i.id" v-on:click="addItems" class="choice">
+															<input style="zoom:150%;" type="checkbox" v-bind:name="item.selectQuestion.id" v-bind:value="i.id" v-on:click="addItems">
 															{{i.content}}
 														</h4>
 													</td>
@@ -50,7 +50,7 @@
 												<tr v-for="i in item.selectQuestion.itemList" v-if="item.selectQuestion.type=='单'">
 													<td >
 														<h4>
-															<input style="zoom:150%;" type="radio" v-bind:name="item.selectQuestion.id" v-bind:value="i.id" v-on:click="addItem" class="choice" >
+															<input style="zoom:150%;" type="radio" v-bind:name="item.selectQuestion.id" v-bind:value="i.id" v-on:click="addItem">
 															{{i.content}}
 														</h4>
 													</td>
